@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+<head>
+<!-- Yandex.RTB -->
+<script>window.yaContextCb=window.yaContextCb||[]</script>
+<script src="https://yandex.ru/ads/system/context.js" async></script>
+</head>
+
+<body>
+    <style>
+        body {
+            width: 100%;
+            margin: 0;
+            background-color: rgb(40, 40, 40);
+            overflow: hidden;
+        }
+    </style>
+</body>
+
+<head>
+
+    <title>Midas Touch!</title>
+
+    <style>
+
+        body {
+            font-family: Georgia, serif;;
+            text-align: center;
+            color: white;
+        }
+
+        #coins {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        #watchAd {
+            margin: 10px;
+            margin-bottom: 502px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #withdraw {
+            margin: 10px;
+            margin-bottom: 50px;
+            padding: 5px 20px;
+            font-size: 18px;
+            background-color: aliceblue;
+            color:#4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #deposit {
+            margin: 10px;
+            margin-bottom: 50px;
+            padding: 5px 13px;
+            font-size: 18px;
+            background-color: aliceblue;
+            color:#4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Midas Touch!</h1>
+    <p id="Рублей">Рублей: 0</p>
+    <p id="message"></p>
+    <button id="watchAd">Просмотр рекламы</button>
+    <button id="withdraw">Вывод средств</button>
+    <button id="deposit">Внести средства</button>
+
+    <!-- Yandex.RTB R-A-12488027-1 -->
+
+    <script>
+
+        let Рублей = 0;
+        
+        function watchAd() {
+            document.getElementById("watchAd").disabled = true;
+            document.getElementById("message").textContent = "Ожидание рекламы...";
+            setTimeout(() => {
+                Рублей += 10;
+                updateDisplay();
+                document.getElementById("message").textContent = "Спасибо за просмотр!";
+                document.getElementById("watchAd").disabled = false;
+                setTimeout(() => {
+                    document.getElementById("message").textContent = "";
+                }, 5000);
+            }, 5000);
+        }
+
+        function updateDisplay() {
+            document.getElementById("Рублей").textContent = "Рублей: " + Рублей;
+        }
+
+        document.getElementById("watchAd").addEventListener("click", watchAd);
+
+        window.yaContextCb.push(() => {
+            Ya.Context.AdvManager.render({
+                "blockId": "R-A-12488027-1",
+                "type": "fullscreen",
+                "platform": "touch"
+            })
+        })
+        
+        updateDisplay();
+
+    </script>
+
+</body>
+
+</html>
